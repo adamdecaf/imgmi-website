@@ -1,0 +1,13 @@
+User-Agent: *
+Allow: about.php
+Allow: api.php
+Allow: faq.php
+Allow: index.php
+Allow: legal.php
+Allow: report.php
+Allow: /files/
+Disallow: changelog.php
+Disallow: planned.php
+Disallow: upload.php
+Disallow: /images/
+Disallow: /includes/

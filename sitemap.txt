@@ -1,0 +1,10 @@
+http://imgmi.net/index.php
+http://imgmi.net/about.php
+http://imgmi.net/faq.php
+http://imgmi.net/api.php
+http://imgmi.net/legal.php
+http://imgmi.net/report.php
+http://imgmi.net/changelog.php
+http://imgmi.net/planned.php
+http://imgmi.net/upload.php
+http://imgmi.net/files/
