@@ -19,7 +19,9 @@ include("includes/php/upload-config.php");
 				// Set the new name
 				$newName = md5_file($uploads['tmp_name']);
 				$firstChar = substr($newName, 0, 1);
-					$newName = substr($newName, 0, 8);
+				$newName = substr($newName, 0, 8);
+
+        if ($newName != "0d5b1c4c") {
 					
 					// Get the file extenstion.
 					switch ($uploads['type']) {
@@ -55,6 +57,10 @@ include("includes/php/upload-config.php");
 				
 				// Submit.
 				mysql_query($sql, $link);
+      
+        } else {
+          $message = "That file was blank or failed to upload.";
+        }
 				
 			} else {
 				$message = "Error, Your file  is too large.  Please <span onclick=\"this.innerHTML='adam [AT] imgmi.net';\">tell me to change it</span>.";
