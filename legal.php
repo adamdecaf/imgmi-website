@@ -56,9 +56,5 @@ THE ABOVE PRIVACY AGREEMENT IS SUBJECT TO CHANGE AT ANY TIME WITHOUT PROPER NOTI
 		</p>
 	</section>
 	
-	<?php
-		include("includes/html/footer.php");
-		include("includes/html/stats.php");
-	?>
 </body>
 </html>

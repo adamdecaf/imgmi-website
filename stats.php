@@ -6,7 +6,7 @@
  */
 
 $link = mysql_connect('db2132.perfora.net', 'dbo308622575', '4PNm58LAKr6LuI');
-$sql = 'SELECT `id` FROM `db308622575`.`images` LIMIT 10000';
+$sql = 'SELECT `id` FROM `db308622575`.`images` WHERE `path` NOT LIKE "0/0d5b1c4c.jpg"';
 
 	$result = mysql_query($sql, $link);
 	
@@ -15,11 +15,8 @@ $sql = 'SELECT `id` FROM `db308622575`.`images` LIMIT 10000';
 	
 	while($row = mysql_fetch_assoc($result)) {
 		$images++;
-	}
-	
-	echo 'Images: ' . $images . '<br />';
-	
-	
+	}	
+
 // Grab the images from today.
 $today = 0;
 
@@ -29,7 +26,8 @@ $today = 0;
 		$date = mysql_real_escape_string(@date('Y-m-d'), $link);
 	}
 	
-$sql = 'SELECT `time` FROM `db308622575`.`images` WHERE `date` = \'' . $date . '\' LIMIT 10000';
+$sql = 'SELECT `time` FROM `db308622575`.`images` WHERE `date` = \'' . $date . '\' AND `path` <> "0/0d5b1c4c.jpg"';
+//echo $sql;
 
 	$result = mysql_query($sql, $link);
 	
@@ -38,8 +36,10 @@ $sql = 'SELECT `time` FROM `db308622575`.`images` WHERE `date` = \'' . $date . '
 		$data[$today] = $row;
 	}
 	
-	echo 'Today: ' . $today++ . '<br /><br />Break Down:<br />';
-	
+	echo "<!-- Today:" . $today++ . ", Total:" . $images . " -->\n";
+	echo 'Images: ' . $images . '<br />';
+	echo 'Today: ' . $today . '<br /><br />Break Down:<br />';
+
 	while($today--) {
 		echo $data[$today]['time'] . '<br />';
 	}
